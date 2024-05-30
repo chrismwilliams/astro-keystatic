@@ -11,9 +11,10 @@
 			"@/css/*": ["src/css/*"],
 			"@/utils": ["src/utils/index.ts"],
 			"@/types": ["src/types.ts"],
-			"@/site-config": ["src/site.config.ts"],
-			"@/tina/*": ["tina/*"]
-		}
+			"@/site-config": ["src/site.config.ts"]
+		},
+		"jsx": "react-jsx",
+		"jsxImportSource": "react"
 	},
 	"include": ["./.eslintrc.cjs", "**/*"],
 	"exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"]

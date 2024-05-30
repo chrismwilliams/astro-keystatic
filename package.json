@@ -1,9 +1,9 @@
 {
-	"name": "astro-tina",
+	"name": "astro-keystatic",
 	"version": "0.0.1",
 	"private": false,
 	"scripts": {
-		"dev": "tinacms dev -c \"astro dev\"",
+		"dev": "astro dev",
 		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
@@ -11,23 +11,30 @@
 		"check": "astro check"
 	},
 	"dependencies": {
+		"@astrojs/markdoc": "^0.11.0",
 		"@astrojs/mdx": "3.0.1",
+		"@astrojs/netlify": "^5.2.1",
+		"@astrojs/react": "^3.4.0",
 		"@astrojs/rss": "4.0.6",
 		"@astrojs/sitemap": "3.1.5",
 		"@astrojs/tailwind": "5.1.0",
+		"@keystatic/astro": "^5.0.0",
+		"@keystatic/core": "^0.5.18",
+		"@types/react": "^18.3.3",
+		"@types/react-dom": "^18.3.0",
 		"@vercel/og": "^0.6.2",
 		"astro": "4.9.2",
 		"astro-expressive-code": "^0.35.3",
 		"astro-icon": "^1.1.0",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
 		"rehype-external-links": "^3.0.0",
 		"sharp": "^0.33.4",
-		"slugify": "^1.6.6",
-		"tinacms": "^1.6.3"
+		"slugify": "^1.6.6"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.7.0",
 		"@iconify-json/mdi": "^1.1.66",
-		"@tinacms/cli": "^1.5.45",
 		"@types/eslint": "^8.56.10",
 		"@types/node": "^20.12.13",
 		"@typescript-eslint/eslint-plugin": "^7.10.0",

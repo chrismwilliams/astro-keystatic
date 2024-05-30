@@ -14,15 +14,15 @@ export const siteConfig: SiteConfig = {
 		},
 	},
 	// Meta property used as the default description meta property
-	description: "An starter theme for Astro with TinaCMS",
+	description: "An starter theme for Astro with Keystatic CMS",
 	// HTML lang property, found in src/layouts/Base.astro L:18
 	lang: "en-GB",
 	// Meta property, found in src/components/BaseHead.astro L:42
 	ogLocale: "en_GB",
-	// Option to sort posts by updatedDate if set to true (if property exists). Default (false) will sort by publishDate
+	// Option to sort posts by updatedDate if set to true (if property exists). Default (false) will sort by publishedDate
 	sortPostsByUpdatedDate: false,
 	// Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
-	title: "Astro Tina",
+	title: "Astro Keystatic",
 };
 
 // Used to generate links in both the Header & Footer.

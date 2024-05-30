@@ -1,3 +1,3 @@
 <h1 align="center">
-  Astro Tina
+  Astro Keystatic
 </h1>
