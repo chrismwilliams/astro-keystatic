@@ -8,11 +8,13 @@ export const GET = async () => {
 	return rss({
 		description: siteConfig.description,
 		items: posts.map((post) => ({
-			...(post.updatedDate ? { customData: `<updated>${post.updatedDate}</updated>` } : {}),
-			description: post.description,
+			...(post.data.updatedDate
+				? { customData: `<updated>${post.data.updatedDate}</updated>` }
+				: {}),
+			description: post.data.description,
 			link: `posts/${post.slug}`,
-			pubDate: post.publishedDate,
-			title: post.title,
+			pubDate: post.data.publishedDate,
+			title: post.data.title,
 		})),
 		site: import.meta.env.SITE,
 		title: siteConfig.title,
