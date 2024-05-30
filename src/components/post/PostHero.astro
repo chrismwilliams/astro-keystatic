@@ -1,15 +1,17 @@
 ---
-import type { MDXPost } from "@/types";
+import type { CollectionEntry } from "astro:content";
 
 import FormattedDate from "../FormattedDate.astro";
 
 interface Props {
-	post: MDXPost;
+	post: CollectionEntry<"posts">;
 }
 
-const { post } = Astro.props;
+const {
+	post: { data, render },
+} = Astro.props;
 
-// const { remarkPluginFrontmatter } = await render();
+const { remarkPluginFrontmatter } = await render();
 
 const dateTimeOptions: Intl.DateTimeFormatOptions = {
 	dateStyle: "long",
@@ -19,27 +21,20 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 };
 ---
 
-{post.frontmatter.draft ? <span>(Draft)</span> : null}
+{data.draft ? <span>(Draft)</span> : null}
 <h1>
-	{post.frontmatter.title}
+	{data.title}
 </h1>
 <div class="flow mt-xs text-grey flow-space-3xs">
 	<p>
-		<FormattedDate
-			date={new Date(post.frontmatter.publishedDate)}
-			dateTimeOptions={dateTimeOptions}
-		/> ~{" "}
-		{post.frontmatter.minutesRead}
+		<FormattedDate date={data.publishedDate} dateTimeOptions={dateTimeOptions} /> ~{" "}
+		{remarkPluginFrontmatter.minutesRead}
 	</p>
 	{
-		post.frontmatter.updatedDate && (
+		data.updatedDate && (
 			<p>
 				Updated:
-				<FormattedDate
-					class="ms-1"
-					date={new Date(post.frontmatter.updatedDate)}
-					dateTimeOptions={dateTimeOptions}
-				/>
+				<FormattedDate class="ms-1" date={data.updatedDate} dateTimeOptions={dateTimeOptions} />
 			</p>
 		)
 	}

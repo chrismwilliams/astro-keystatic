@@ -3,10 +3,10 @@ import type { HTMLAttributes } from "astro/types";
 
 import { getFormattedDate } from "@/utils";
 
-type Props = HTMLAttributes<"time"> & {
+type Props = {
 	date: Date;
 	dateTimeOptions?: Intl.DateTimeFormatOptions;
-};
+} & HTMLAttributes<"time">;
 
 const { date, dateTimeOptions, ...attrs } = Astro.props;
 

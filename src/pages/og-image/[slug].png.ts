@@ -1,11 +1,9 @@
-import type { MDXPost } from "@/types";
 import type { APIContext, InferGetStaticPropsType } from "astro";
 
+import { getAllPosts } from "@/data/post";
 import { siteConfig } from "@/site-config";
 import { getFormattedDate } from "@/utils";
 import { ImageResponse } from "@vercel/og";
-
-const posts: MDXPost[] = Object.values(import.meta.glob("../../posts/*.mdx", { eager: true }));
 
 const html = (title: string, pubDate: string) => ({
 	props: {
@@ -69,12 +67,13 @@ export function GET(context: APIContext) {
 	});
 }
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
+	const posts = await getAllPosts();
 	return posts.map((post) => ({
-		params: { slug: post.frontmatter.slug },
+		params: { slug: post.slug },
 		props: {
-			pubDate: post.frontmatter.updatedDate ?? post.frontmatter.publishedDate,
-			title: post.frontmatter.title,
+			pubDate: post.updatedDate ?? post.publishedDate,
+			title: post.title,
 		},
 	}));
 }

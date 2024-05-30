@@ -1,20 +1,21 @@
 ---
-import type { MDXPost } from "@/types";
+import type { CollectionEntry } from "astro:content";
 
 import PostHero from "@/components/post/PostHero.astro";
 
 import BaseLayout from "./Base.astro";
 
 interface Props {
-	post: MDXPost;
+	post: CollectionEntry<"posts">;
 }
 
 const { post } = Astro.props;
-const { description, publishedDate, title, updatedDate } = post.frontmatter;
-const articleDate = updatedDate
-	? new Date(updatedDate).toISOString()
-	: new Date(publishedDate).toISOString();
-const ogImage = `/og-image/${post.frontmatter.slug}.png`;
+const {
+	data: { description, publishedDate, title, updatedDate },
+	slug,
+} = post;
+const articleDate = updatedDate?.toISOString() ?? publishedDate.toISOString();
+const ogImage = `/og-image/${slug}.png`;
 ---
 
 <BaseLayout meta={{ articleDate, description, ogImage, title }}>

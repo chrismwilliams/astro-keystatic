@@ -1,5 +1,3 @@
-import type { MDXInstance } from "astro";
-
 export interface SiteConfig {
 	author: string;
 	date: {
@@ -35,5 +33,3 @@ export interface PostFrontmatter {
 	title: string;
 	updatedDate?: string;
 }
-
-export type MDXPost = MDXInstance<PostFrontmatter>;

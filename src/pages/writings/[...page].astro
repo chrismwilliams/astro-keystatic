@@ -1,24 +1,22 @@
 ---
-import type { MDXPost, PostFrontmatter } from "@/types";
 import type { GetStaticPaths, Page } from "astro";
+import type { CollectionEntry } from "astro:content";
 
 import Pagination from "@/components/Paginator.astro";
 import PostPreview from "@/components/post/PostPreview.astro";
 import "@/css/blocks/site-writings.css";
-import { groupPostsByYear, sortMDByDate } from "@/data/post";
+import { getAllPosts, groupPostsByYear, sortMDByDate } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const MAX_POSTS_PER_PAGE = 10;
-	const allPosts = (await Astro.glob<PostFrontmatter>("../../posts/*.mdx")).filter((post) =>
-		import.meta.env.PROD ? !post.frontmatter.draft : true
-	);
+	const allPosts = await getAllPosts();
 	const allPostsByDate = sortMDByDate(allPosts);
 	return paginate(allPostsByDate, { pageSize: MAX_POSTS_PER_PAGE });
 }) satisfies GetStaticPaths;
 
 interface Props {
-	page: Page<MDXPost>;
+	page: Page<CollectionEntry<"posts">>;
 }
 
 const { page } = Astro.props;
