@@ -1,7 +1,6 @@
 ---
-import { Icon } from "astro-icon/components";
-
 import "@/css/blocks/social-links.css";
+import { Icon } from "astro-icon/components";
 /** 
 	Uses https://www.astroicon.dev/getting-started/
 	Find icons via guide: https://www.astroicon.dev/guides/customization/#open-source-icon-sets
@@ -9,28 +8,28 @@ import "@/css/blocks/social-links.css";
 */
 const socialLinks: {
 	friendlyName: string;
-	link: string;
 	iconName: string;
+	link: string;
 }[] = [
 	{
 		friendlyName: "Github",
-		link: "https://github.com/chrismwilliams/astro-tina",
 		iconName: "mdi:github",
+		link: "https://github.com/chrismwilliams/astro-keystatic",
 	},
 	{
 		friendlyName: "Email",
-		link: "mailto:hello@example.com",
 		iconName: "mdi:email",
+		link: "mailto:hello@example.com",
 	},
 ];
 ---
 
 <ul class="social-links cluster" role="list">
 	{
-		socialLinks.map(({ friendlyName, link, iconName }) => (
+		socialLinks.map(({ friendlyName, iconName, link }) => (
 			<li>
 				<a href={link}>
-					<Icon class="text-step-2" aria-hidden="true" name={iconName} />
+					<Icon aria-hidden="true" class="text-step-2" name={iconName} />
 					<span class="visually-hidden">{friendlyName}</span>
 				</a>
 			</li>
