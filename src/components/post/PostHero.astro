@@ -8,10 +8,8 @@ interface Props {
 }
 
 const {
-	post: { data, render },
+	post: { data },
 } = Astro.props;
-
-const { remarkPluginFrontmatter } = await render();
 
 const dateTimeOptions: Intl.DateTimeFormatOptions = {
 	dateStyle: "long",
@@ -27,8 +25,7 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 </h1>
 <div class="flow mt-xs text-grey flow-space-3xs">
 	<p>
-		<FormattedDate date={data.publishedDate} dateTimeOptions={dateTimeOptions} /> ~{" "}
-		{remarkPluginFrontmatter.minutesRead}
+		<FormattedDate date={data.publishedDate} dateTimeOptions={dateTimeOptions} />
 	</p>
 	{
 		data.updatedDate && (
