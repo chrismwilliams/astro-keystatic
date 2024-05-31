@@ -9,11 +9,8 @@ import { defineConfig } from "astro/config";
 import expressiveCode from "astro-expressive-code";
 import icon from "astro-icon";
 import { readFileSync } from "node:fs";
-import rehypeExternalLinks from "rehype-external-links";
-import remarkUnwrapImages from "remark-unwrap-images";
 
 import { expressiveCodeOptions } from "./src/site.config";
-import { remarkReadingTime } from "./src/utils/remark-reading-time";
 
 // https://astro.build/config
 export default defineConfig({
@@ -27,26 +24,11 @@ export default defineConfig({
 		sitemap(),
 		mdx(),
 		react(),
-		markdoc(),
+		markdoc({
+			allowHTML: true,
+		}),
 		keystatic(),
 	],
-	markdown: {
-		rehypePlugins: [
-			[
-				rehypeExternalLinks,
-				{
-					rel: ["nofollow, noreferrer"],
-					target: "_blank",
-				},
-			],
-		],
-		remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
-		remarkRehype: {
-			footnoteLabelProperties: {
-				className: [""],
-			},
-		},
-	},
 	output: "hybrid",
 	// https://docs.astro.build/en/guides/prefetch/
 	prefetch: true,
