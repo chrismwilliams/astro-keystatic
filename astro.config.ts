@@ -27,7 +27,7 @@ export default defineConfig({
 		markdoc({
 			allowHTML: true,
 		}),
-		keystatic(),
+		...(import.meta.env.PROD ? [] : [keystatic()]),
 	],
 	output: "hybrid",
 	// https://docs.astro.build/en/guides/prefetch/
