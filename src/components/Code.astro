@@ -1,0 +1,17 @@
+---
+import { Code as ExpressiveCode } from "astro-expressive-code/components";
+import { decode } from "tiny-decode";
+
+const content = decode((await Astro.slots.render("default")).trim());
+---
+
+<ExpressiveCode
+	class={Astro.props.class ?? undefined}
+	code={content}
+	del={Astro.props.del ?? undefined}
+	frame={Astro.props.frame ?? "auto"}
+	ins={Astro.props.ins ?? undefined}
+	lang={Astro.props["data-language"] ?? undefined}
+	mark={Astro.props.mark ?? undefined}
+	title={Astro.props.title ?? undefined}
+/>
