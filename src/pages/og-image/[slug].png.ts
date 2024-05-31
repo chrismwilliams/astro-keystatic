@@ -72,8 +72,8 @@ export async function getStaticPaths() {
 	return posts.map((post) => ({
 		params: { slug: post.slug },
 		props: {
-			pubDate: post.updatedDate ?? post.publishedDate,
-			title: post.title,
+			pubDate: post.data.updatedDate ?? post.data.publishedDate,
+			title: post.data.title,
 		},
 	}));
 }

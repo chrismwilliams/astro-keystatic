@@ -19,5 +19,5 @@ const { Content } = await post.render();
 ---
 
 <PostLayout post={post}>
-	<Content />
+	<Content frontmatter={post.data} />
 </PostLayout>
