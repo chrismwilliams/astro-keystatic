@@ -34,7 +34,7 @@
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.7.0",
-		"@iconify-json/mdi": "^1.1.66",
+		"@iconify-json/mdi": "^1.1.67",
 		"@types/eslint": "^8.56.10",
 		"@types/node": "^20.14.0",
 		"@typescript-eslint/eslint-plugin": "^7.10.0",
