@@ -15,7 +15,7 @@
 		"@astrojs/mdx": "3.0.1",
 		"@astrojs/netlify": "^5.2.1",
 		"@astrojs/react": "^3.4.0",
-		"@astrojs/rss": "4.0.6",
+		"@astrojs/rss": "4.0.7",
 		"@astrojs/sitemap": "3.1.5",
 		"@astrojs/tailwind": "5.1.0",
 		"@keystatic/astro": "^5.0.0",
