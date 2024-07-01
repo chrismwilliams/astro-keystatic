@@ -11,7 +11,7 @@
 		"check": "astro check"
 	},
 	"dependencies": {
-		"@astrojs/markdoc": "^0.11.0",
+		"@astrojs/markdoc": "^0.11.1",
 		"@astrojs/mdx": "3.0.1",
 		"@astrojs/netlify": "^5.2.1",
 		"@astrojs/react": "^3.4.0",
